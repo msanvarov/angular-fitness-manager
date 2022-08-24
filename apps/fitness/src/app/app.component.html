@@ -1,5 +1,7 @@
 <div>
-  <h1>{{ user$ | async | json }}</h1>
+  <fitness-app-header [user]="user$ | async" (logout)="onLogout()">
+  </fitness-app-header>
+  <fitness-app-nav *ngIf="(user$ | async)?.authenticated"></fitness-app-nav>
   <div class="wrapper">
     <router-outlet></router-outlet>
   </div>

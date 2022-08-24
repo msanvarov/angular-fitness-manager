@@ -5,22 +5,15 @@
   "targets": {
     "build": {
       "executor": "@angular-devkit/build-angular:browser",
-      "outputs": [
-        "{options.outputPath}"
-      ],
+      "outputs": ["{options.outputPath}"],
       "options": {
         "outputPath": "dist/apps/fitness",
         "index": "apps/fitness/src/index.html",
         "main": "apps/fitness/src/main.ts",
         "polyfills": "apps/fitness/src/polyfills.ts",
         "tsConfig": "apps/fitness/tsconfig.app.json",
-        "assets": [
-          "apps/fitness/src/favicon.ico",
-          "apps/fitness/src/assets"
-        ],
-        "styles": [
-          "apps/fitness/src/styles.css"
-        ],
+        "assets": ["apps/fitness/src/favicon.ico", "apps/fitness/src/assets"],
+        "styles": ["apps/fitness/src/styles.scss"],
         "scripts": []
       },
       "configurations": {
@@ -77,17 +70,12 @@
     "lint": {
       "executor": "@nrwl/linter:eslint",
       "options": {
-        "lintFilePatterns": [
-          "apps/fitness/**/*.ts",
-          "apps/fitness/**/*.html"
-        ]
+        "lintFilePatterns": ["apps/fitness/**/*.ts", "apps/fitness/**/*.html"]
       }
     },
     "test": {
       "executor": "@nrwl/jest:jest",
-      "outputs": [
-        "coverage/apps/fitness"
-      ],
+      "outputs": ["coverage/apps/fitness"],
       "options": {
         "jestConfig": "apps/fitness/jest.config.ts",
         "passWithNoTests": true

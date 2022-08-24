@@ -1,2 +1,3 @@
-export * from './lib/auth.module';
-export * from './lib/reusable/services';
+export * from './lib/auth';
+export * from './lib/components';
+export * from './lib/health';

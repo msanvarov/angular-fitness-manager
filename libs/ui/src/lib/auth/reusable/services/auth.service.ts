@@ -3,6 +3,7 @@ import {
   Auth,
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
+  signOut,
 } from '@angular/fire/auth';
 
 import { IUser, Store } from '@fitness/store';
@@ -12,6 +13,7 @@ import { IUser, Store } from '@fitness/store';
 })
 export class AuthService {
   authState = this.auth.onAuthStateChanged((next) => {
+    console.log('Listening for auth state changes');
     if (!next) {
       this.store.set('user', null);
       return;
@@ -33,5 +35,9 @@ export class AuthService {
 
   loginUser(email: string, password: string) {
     return signInWithEmailAndPassword(this.auth, email, password);
+  }
+
+  logoutUser() {
+    return signOut(this.auth);
   }
 }

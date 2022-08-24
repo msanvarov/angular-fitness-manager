@@ -14,26 +14,32 @@ import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
 
 import { Store } from '@fitness/store';
-import { AuthModule } from '@fitness/ui';
+import {
+  AppHeaderComponent,
+  AppNavComponent,
+  AuthModule,
+  HealthModule,
+} from '@fitness/ui';
 
 import { environment } from '../environments/environment';
 import { AppComponent } from './app.component';
 import { GlobalRoutes } from './routes';
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, AppHeaderComponent, AppNavComponent],
   imports: [
     CommonModule,
     BrowserModule,
     RouterModule.forRoot(GlobalRoutes, {
       initialNavigation: 'enabledBlocking',
     }),
-    AuthModule,
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideAnalytics(() => getAnalytics()),
     provideAuth(() => getAuth()),
     provideDatabase(() => getDatabase()),
     providePerformance(() => getPerformance()),
+    AuthModule,
+    HealthModule,
   ],
   providers: [Store, ScreenTrackingService, UserTrackingService],
   bootstrap: [AppComponent],
