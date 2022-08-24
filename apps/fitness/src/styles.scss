@@ -1,3 +1,6 @@
+* {
+    font-family: "Jost", sans-serif;
+}
 html,
 body {
     height: 100%;
@@ -6,7 +9,6 @@ body {
     padding: 0;
     background: #eff4f9;
     -webkit-font-smoothing: antialiased;
-    font-family: "Jost", sans-serif;
     color: #545e6f;
 }
 a {

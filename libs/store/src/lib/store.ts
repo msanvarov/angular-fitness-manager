@@ -7,14 +7,59 @@ export interface IUser {
   authenticated: boolean;
 }
 
+export interface IMeal {
+  name: string;
+  ingredients: string[];
+  timestamp: number;
+  $key: string;
+}
+
+export interface IWorkout {
+  name: string;
+  type: string;
+  strength: any;
+  endurance: any;
+  timestamp: number;
+  $key: string;
+}
+
+export interface IScheduleItem {
+  meals: IMeal[] | null;
+  workouts: IWorkout[] | null;
+  section: string;
+  timestamp: number;
+  $key?: string;
+}
+
+export interface IScheduleList {
+  morning?: IScheduleItem;
+  lunch?: IScheduleItem;
+  evening?: IScheduleItem;
+  snacks?: IScheduleItem;
+  [key: string]: any;
+}
+
 // This is a in memory store for managing the app state. Will be replaced with NgRx Store in the future.
 export interface State {
   user?: IUser;
+  meals?: IMeal[];
+  selected?: any;
+  schedule?: IScheduleItem[];
+  type?: string;
+  date?: Date;
+  workouts?: IWorkout[];
   [key: string]: unknown;
 }
 
 const state: State = {
   user: undefined,
+  meals: undefined,
+  selected: undefined,
+  schedule: undefined,
+  list: undefined,
+  date: undefined,
+  workouts: undefined,
+  type: undefined,
 };
 
 export class Store {

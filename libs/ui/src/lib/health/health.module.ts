@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 
 import { AuthGuard } from '../auth';
+import { ReusableModule } from '../reusable/reusable.module';
 
 @NgModule({
   declarations: [],
@@ -34,6 +35,7 @@ import { AuthGuard } from '../auth';
           ),
       },
     ]),
+    ReusableModule.forRoot(),
   ],
 })
 export class HealthModule {}

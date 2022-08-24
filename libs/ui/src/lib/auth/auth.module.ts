@@ -2,7 +2,8 @@ import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 
-import { ReusableModule } from './reusable/reusable.module';
+import { AuthGuard } from './auth.guard';
+import { AuthService } from './auth.service';
 
 @NgModule({
   imports: [
@@ -30,8 +31,8 @@ import { ReusableModule } from './reusable/reusable.module';
         ],
       },
     ]),
-    ReusableModule.forRoot(),
   ],
   declarations: [],
+  providers: [AuthService, AuthGuard],
 })
 export class AuthModule {}

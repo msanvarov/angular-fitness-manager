@@ -1,0 +1,14 @@
+<div class="calendar">
+  <fitness-schedule-controls [selected]="selectedDay" (move)="onChange($event)">
+  </fitness-schedule-controls>
+  <fitness-schedule-days
+    [selected]="selectedDayIndex"
+    (select)="selectDay($event)"
+  ></fitness-schedule-days>
+  <fitness-schedule-section
+    *ngFor="let section of sections"
+    [name]="section.name"
+    [section]="getSection(section.key)"
+    (select)="selectSection($event, section.key)"
+  ></fitness-schedule-section>
+</div>
