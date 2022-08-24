@@ -1,35 +1,41 @@
+import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
+import {
+  ScreenTrackingService,
+  UserTrackingService,
+  getAnalytics,
+  provideAnalytics,
+} from '@angular/fire/analytics';
+import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
+import { getAuth, provideAuth } from '@angular/fire/auth';
+import { getDatabase, provideDatabase } from '@angular/fire/database';
+import { getPerformance, providePerformance } from '@angular/fire/performance';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
 
-import { AuthModule } from '@fitness/auth';
 import { Store } from '@fitness/store';
+import { AuthModule } from '@fitness/ui';
 
+import { environment } from '../environments/environment';
 import { AppComponent } from './app.component';
-import { NxWelcomeComponent } from './nx-welcome.component';
 import { GlobalRoutes } from './routes';
 
 @NgModule({
-  declarations: [AppComponent, NxWelcomeComponent],
+  declarations: [AppComponent],
   imports: [
+    CommonModule,
     BrowserModule,
     RouterModule.forRoot(GlobalRoutes, {
       initialNavigation: 'enabledBlocking',
     }),
     AuthModule,
+    provideFirebaseApp(() => initializeApp(environment.firebase)),
+    provideAnalytics(() => getAnalytics()),
+    provideAuth(() => getAuth()),
+    provideDatabase(() => getDatabase()),
+    providePerformance(() => getPerformance()),
   ],
-  providers: [Store],
+  providers: [Store, ScreenTrackingService, UserTrackingService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
-
-// {
-//   apiKey: "AIzaSyAi0LcjU37xCP3-vKNK5ilw_oJiG5t5ig8",
-//   authDomain: "fitness-61884.firebaseapp.com",
-//   databaseURL: "https://fitness-61884-default-rtdb.firebaseio.com",
-//   projectId: "fitness-61884",
-//   storageBucket: "fitness-61884.appspot.com",
-//   messagingSenderId: "24242314841",
-//   appId: "1:24242314841:web:90e3a8f935d4fe41715b48",
-//   measurementId: "G-33SBZ5MTFL"
-// }

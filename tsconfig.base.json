@@ -15,8 +15,8 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@fitness/auth": ["libs/auth/src/index.ts"],
-      "@fitness/store": ["libs/store/src/index.ts"]
+      "@fitness/store": ["libs/store/src/index.ts"],
+      "@fitness/ui": ["libs/ui/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]
