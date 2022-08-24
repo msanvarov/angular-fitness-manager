@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
 
 import { AuthFormComponent } from './components/auth-form/auth-form.component';
+import { AuthGuard } from './guards/auth.guard';
 import { AuthService } from './services/auth.service';
 
 @NgModule({
@@ -14,7 +15,7 @@ export class ReusableModule {
   static forRoot() {
     return {
       ngModule: ReusableModule,
-      providers: [AuthService],
+      providers: [AuthService, AuthGuard],
     };
   }
 }

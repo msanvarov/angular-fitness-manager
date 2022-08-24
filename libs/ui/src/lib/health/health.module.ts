@@ -2,6 +2,8 @@ import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 
+import { AuthGuard } from '../auth';
+
 @NgModule({
   declarations: [],
   imports: [
@@ -9,6 +11,7 @@ import { RouterModule } from '@angular/router';
     RouterModule.forChild([
       {
         path: 'schedule',
+        canActivate: [AuthGuard],
         loadChildren: () =>
           import('./schedule/schedule.module').then(
             (scheduleModule) => scheduleModule.ScheduleModule,
@@ -16,6 +19,7 @@ import { RouterModule } from '@angular/router';
       },
       {
         path: 'meals',
+        canActivate: [AuthGuard],
         loadChildren: () =>
           import('./meals/meals.module').then(
             (mealsModule) => mealsModule.MealsModule,
@@ -23,6 +27,7 @@ import { RouterModule } from '@angular/router';
       },
       {
         path: 'workouts',
+        canActivate: [AuthGuard],
         loadChildren: () =>
           import('./workouts/workouts.module').then(
             (workoutsModule) => workoutsModule.WorkoutsModule,

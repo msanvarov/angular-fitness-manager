@@ -1,7 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { Unsubscribe } from '@angular/fire/auth';
 import { Router } from '@angular/router';
-import { Observable } from 'rxjs';
+import { Observable, Subscription } from 'rxjs';
 
 import { IUser, Store } from '@fitness/store';
 import { AuthService } from '@fitness/ui';
@@ -13,7 +12,7 @@ import { AuthService } from '@fitness/ui';
 })
 export class AppComponent implements OnInit, OnDestroy {
   user$?: Observable<IUser>;
-  subscription?: Unsubscribe;
+  subscription?: Subscription | null;
 
   constructor(
     private store: Store,
@@ -22,13 +21,13 @@ export class AppComponent implements OnInit, OnDestroy {
   ) {}
 
   ngOnInit() {
-    this.subscription = this.authService.authState;
+    this.subscription = this.authService.auth$.subscribe();
     this.user$ = this.store.select<IUser>('user');
     console.log('user$', this.user$);
   }
 
   ngOnDestroy() {
-    this.subscription && this.subscription();
+    this.subscription?.unsubscribe();
   }
 
   async onLogout() {
