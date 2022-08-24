@@ -2,8 +2,8 @@
   "$schema": "./node_modules/nx/schemas/workspace-schema.json",
   "version": 2,
   "projects": {
-    "auth": "libs/auth",
     "fitness": "apps/fitness",
-    "store": "libs/store"
+    "store": "libs/store",
+    "ui": "libs/ui"
   }
 }

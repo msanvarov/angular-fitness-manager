@@ -1,12 +1,21 @@
 import { BehaviorSubject, Observable } from 'rxjs';
 import { distinctUntilChanged, map } from 'rxjs/operators';
 
+export interface IUser {
+  email: string;
+  uid: string;
+  authenticated: boolean;
+}
+
 // This is a in memory store for managing the app state. Will be replaced with NgRx Store in the future.
 export interface State {
+  user?: IUser;
   [key: string]: unknown;
 }
 
-const state: State = {};
+const state: State = {
+  user: undefined,
+};
 
 export class Store {
   private subject = new BehaviorSubject<State>(state);
