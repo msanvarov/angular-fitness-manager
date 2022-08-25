@@ -1,98 +1,136 @@
-# Fitness
+<h1 align="center">Fitness Manager</h1>
 
-This project was generated using [Nx](https://nx.dev).
+<p align="center">
+  <a href="https://angular.io/" target="blank"><img src="https://angular.io/assets/images/logos/angular/angular.svg" width="320" alt="Nest Logo" /></a>
+</p>
 
-<p style="text-align: center;"><img src="https://raw.githubusercontent.com/nrwl/nx/master/images/nx-logo.png" width="450"></p>
+<p align="center">Fitness Manager is an app built with Angular to plan meals and workouts.
+</p>
 
-🔎 **Smart, Fast and Extensible Build System**
+<p align="center">
+  <a href="https://github.com/msanvarov/fitness-manager/actions/workflows/firebase-hosting-merge.yml">
+    <img src="https://github.com/msanvarov/fitness-manager/actions/workflows/firebase-hosting-merge.yml/badge.svg" alt="CI status for main branch" />
+  </a>&nbsp;
+  <a href="https://github.com/msanvarov/fitness-manager/actions/workflows/firebase-hosting-pull-request.yml">
+    <img src="https://github.com/msanvarov/fitness-manager/actions/workflows/firebase-hosting-pull-request.yml/badge.svg" alt="CI status for PRs" />
+  </a>&nbsp;
+</p>
 
-## Quick Start & Documentation
+Table of Contents:
 
-[Nx Documentation](https://nx.dev/angular)
+[Description](#-description) |
+[Prerequisites](#%EF%B8%8F-prerequisites) |
+[Deployment](#-deployment) |
+[Testing](#-testing) |
+[TypeDocs](#-typedocs) |
+[Progress](#-progress) |
+[Resources](#-resources)
 
-[10-minute video showing all Nx features](https://nx.dev/getting-started/intro)
+🔎 This repo was created with [Nx](https://nx.dev/).
 
-[Interactive Tutorial](https://nx.dev/react-tutorial/01-create-application)
+### 📚 Description
 
-## Adding capabilities to your workspace
+This Angular application is made to cover a variety of Angular topics/concepts. It comes with authentication, logging, security, and database features out of the box (mainly thanks to [AngularFire](https://github.com/angular/angularfire)).
 
-Nx supports many plugins which add capabilities for developing different types of applications and different tools.
+> Please refer to the [CONCEPTS.md file](CONCEPTS.md) for a list of topics covered.
 
-These capabilities include generating applications, libraries, etc as well as the devtools to test, and build projects as well.
+---
 
-Below are our core plugins:
+### 🛠️ Prerequisites
+
+#### Non Docker
+
+- Please make sure to have [Node.js](https://nodejs.org/en/download/) (16+) locally by downloading the Javascript runtime via `brew`, `choco`, or `apt-get`.
+
+#### Docker 🐳
+
+- Please make sure to have [Docker Desktop](https://www.docker.com/products/docker-desktop/) operational to quickly compose the required dependencies. Then follow the docker procedure outlined below.
+
+---
+
+### 🚀 Deployment
+
+#### Manual Deployment without Docker
+
+- Download dependencies using `npm i` or `yarn`.
+
+- Start the app in development mode by using `npm run start` (the app will be exposed on port 4200; not to conflict with other frontend framework/library ports).
+
+<details open>
+<summary>Optional: Change to personal Firebase project</summary>
+<br>
+
+> Remark: I created a Firebase project for this app to enable ease of use (thus running the application should work out of the box) but there are limitations. It is free-tiered and once the quota is reached, the project will be disabled.
+
+- [Create a Firebase project](https://cloud.google.com/firestore/docs/client/get-firebase).
+- Onboard the created Firebase project with `npx nx g @angular/fire:ng-add`. This command will prompt a Firebase login and ask to select a Firebase project. Following the rest of the prompts can provide hassle-free configuration.
+</details>
+
+#### Deploying with Docker 🐳
+
+- Execute the following command in-app directory:
+
+```bash
+# creates and loads the docker container in detached mode with the required configuration
+$ docker-compose up -d
+```
+
+- The following command will download dependencies and execute the web application on http://localhost:4200.
+
+---
+
+### ✅ Testing
+
+```bash
+# unit tests
+$ npm run test
+
+# e2e tests
+$ npm run test:e2e
+
+# test coverage
+$ npm run test:cov
+```
+
+---
+
+### 💡 TypeDocs
+
+The documentation for this application can be viewed via the command `npm run compodoc`.
+
+This command will produce a **documentation folder** with the required front-end files and **start hosting on [localhost:3000](http://localhost:3000/)**.
+
+---
+
+### 🏗️ Progress
+
+|                                                         Branches | Status |
+| ---------------------------------------------------------------: | :----- |
+|             [main](https://github.com/msanvarov/fitness-manager) | ✅     |
+| [feat/\*](https://github.com/msanvarov/fitness-manager/branches) | 🚧     |
+
+---
+
+### 👥 Support
+
+PRs are appreciated, I fully rely on the passion ❤️ of the OS developers.
+
+---
+
+### 📖 Resources
+
+Further resources to provide further insight into Angular and Firebase:
 
 - [Angular](https://angular.io)
-  - `ng add @nrwl/angular`
-- [React](https://reactjs.org)
-  - `ng add @nrwl/react`
-- Web (no framework frontends)
-  - `ng add @nrwl/web`
-- [Nest](https://nestjs.com)
-  - `ng add @nrwl/nest`
-- [Express](https://expressjs.com)
-  - `ng add @nrwl/express`
-- [Node](https://nodejs.org)
-  - `ng add @nrwl/node`
+- [Nx Docs](https://nx.dev/getting-started/intro)
+- [Firebase Docs](https://firebase.google.com/docs/)
+- [Firebase CLI](https://firebase.google.com/docs/cli/)
+- [AngularFire Repo/Docs](https://github.com/angular/angularfire)
 
-There are also many [community plugins](https://nx.dev/community) you could add.
+---
 
-## Generate an application
+### 📇 License
 
-Run `ng g @nrwl/angular:app my-app` to generate an application.
+The fitness manager app is [MIT licensed](LICENSE).
 
-> You can use any of the plugins above to generate applications as well.
-
-When using Nx, you can create multiple applications and libraries in the same workspace.
-
-## Generate a library
-
-Run `ng g @nrwl/angular:lib my-lib` to generate a library.
-
-> You can also use any of the plugins above to generate libraries as well.
-
-Libraries are shareable across libraries and applications. They can be imported from `@fitness/mylib`.
-
-## Development server
-
-Run `ng serve my-app` for a dev server. Navigate to http://localhost:4200/. The app will automatically reload if you change any of the source files.
-
-## Code scaffolding
-
-Run `ng g component my-component --project=my-app` to generate a new component.
-
-## Build
-
-Run `ng build my-app` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test my-app` to execute the unit tests via [Jest](https://jestjs.io).
-
-Run `nx affected:test` to execute the unit tests affected by a change.
-
-## Running end-to-end tests
-
-Run `ng e2e my-app` to execute the end-to-end tests via [Cypress](https://www.cypress.io).
-
-Run `nx affected:e2e` to execute the end-to-end tests affected by a change.
-
-## Understand your workspace
-
-Run `nx graph` to see a diagram of the dependencies of your projects.
-
-## Further help
-
-Visit the [Nx Documentation](https://nx.dev/angular) to learn more.
-
-## ☁ Nx Cloud
-
-### Distributed Computation Caching & Distributed Task Execution
-
-<p style="text-align: center;"><img src="https://raw.githubusercontent.com/nrwl/nx/master/images/nx-cloud-card.png"></p>
-
-Nx Cloud pairs with Nx in order to enable you to build and test code more rapidly, by up to 10 times. Even teams that are new to Nx can connect to Nx Cloud and start saving time instantly.
-
-Teams using Nx gain the advantage of building full-stack applications with their preferred framework alongside Nx’s advanced code generation and project dependency graph, plus a unified experience for both frontend and backend developers.
-
-Visit [Nx Cloud](https://nx.app/) to learn more.
+[Author](https://sal-anvarov.tech/)
