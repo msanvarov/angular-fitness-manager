@@ -1,0 +1,14 @@
+{
+  "projects": {
+    "default": "fitness-61884"
+  },
+  "targets": {
+    "fitness-61884": {
+      "hosting": {
+        "fitness": [
+          "fitness-61884"
+        ]
+      }
+    }
+  }
+}

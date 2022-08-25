@@ -1,0 +1,18 @@
+<div class="schedule">
+  <fitness-schedule-calendar
+    [date]="date$ | async"
+    [items]="schedule$ | async"
+    (change)="changeDate($event)"
+    (select)="changeSection($event)"
+  >
+  </fitness-schedule-calendar>
+
+  <fitness-schedule-assign
+    *ngIf="open"
+    [section]="selected$ | async"
+    [list]="list$ | async"
+    (update)="assignItem($event)"
+    (cancel)="closeAssign()"
+  >
+  </fitness-schedule-assign>
+</div>
