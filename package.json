@@ -1,6 +1,10 @@
 {
-  "name": "fitness",
-  "version": "0.0.0",
+  "name": "fitness-manager",
+  "version": "0.0.1",
+  "author": {
+    "name": "Sal Anvarov",
+    "email": "sal.dezzign@gmail.com"
+  },
   "license": "MIT",
   "scripts": {
     "ng": "nx",
